@@ -1,0 +1,5 @@
+int64 i1
+char op
+int64 i2
+---
+int64 i3
