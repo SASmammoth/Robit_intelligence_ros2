@@ -4,10 +4,12 @@
 > **작성자:** 장경민  
 > **제출일:** 2026.09.18.
 
----
+음---
 
 ## 1. 개요 (Overview)
 robot_description 패키지만으로 bringup 패키지를 만들고, CLI 명령으로 로봇의 모든 구동부가 움직이는지 확인하기
+
+과제 제출을 위해 robot_description의 .git을 제거하였음
 
 ## 2. 체크포인트 (checkpoint)
 
@@ -41,4 +43,4 @@ robot_description 패키지만으로 bringup 패키지를 만들고, CLI 명령�
 ## 3. 간단한 설명
 
 
-robot_description 는 일절 건들이지 않고, eclipse_bringup_JKM 패키지를 하나 만들어서 구현 하였다. 강의자료에 있는 controllers.yaml 과 bringup.launch.py 에서 약간의 수정 및 추가를 하여 컨트롤러를 구성하고 연결하여 만들었다. 2.4에서 로봇을 전진/후진 시키는 것은 프레임을 설정을 base_link에서 새로 만든 odom으로 바꾸어 시각화함.
+robot_description 는 .git을 제외하고는 일절 건들이지 않고, eclipse_bringup_JKM 패키지를 하나 만들어서 구현 하였다. 강의자료에 있는 controllers.yaml 과 bringup.launch.py 에서 약간의 수정 및 추가를 하여 컨트롤러를 구성하고 연결하여 만들었다. 2.4에서 로봇을 전진/후진 시키는 것은 프레임을 설정을 base_link에서 새로 만든 odom으로 바꾸어 시각화함.
