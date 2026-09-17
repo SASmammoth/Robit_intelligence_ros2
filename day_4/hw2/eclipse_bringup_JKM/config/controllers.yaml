@@ -1,0 +1,82 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # 제어 루프 주기 (Hz)
+
+    # 사용할 컨트롤러 이름과 타입 등록
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    camera_tower_controller:
+      type: forward_command_controller/ForwardCommandController
+    
+    #팔 관절 6개를 컨트롤러 하나로 궤적 명령을 보내 움직이기 위해
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    
+    flipper_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+
+
+# 컨트롤러별 설정 (최상위 키 = 컨트롤러 이름)
+camera_tower_controller:
+  ros__parameters:
+    joints:
+      - ct_joint1_1
+      - ct_joint2_1
+      - ct_joint1_2
+      - ct_joint2_2
+    interface_name: position
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - arm_joint1
+      - arm_joint2
+      - arm_joint3
+      - arm_joint4
+      - arm_joint5
+      - arm_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+
+
+
+
+flipper_controller:
+  ros__parameters:
+    joints:
+      - fl_joint
+      - fr_joint
+      - bl_joint
+      - br_joint
+    interface_name: position
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names:
+      - left_wheel_joint
+
+    right_wheel_names:
+      - right_wheel_joint
+
+    # 바퀴를 움직일때 이렇게 움직이는게 맞는지는 모르겠지만 추가함
+    # 바퀴의 반지름과 축거?는 rviz2의 Measure기능을 이용하여 간단히 측정함.
+    wheel_separation: 0.25
+    wheel_radius: 0.07
+
+    publish_rate: 50.0
+
+    base_frame_id: base_link
+    odom_frame_id: odom
+
+    enable_odom_tf: true
